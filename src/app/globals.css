@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F8F9FA;
+  --foreground: #333333;
+  --primary-color: #1A1A1A;
+  --secondary-color: #6C757D;
+  --accent-color: #C5A059;
+  --surface-color: rgba(255, 255, 255, 0.55);
+  --border-color: rgba(255, 255, 255, 0.5);
+}
+
+@theme {
+  --color-primary: var(--primary-color);
+  --color-secondary: var(--secondary-color);
+  --color-accent: var(--accent-color);
+  --color-stone-bg: var(--background);
+  --color-surface: var(--surface-color);
+  --color-stone-border: var(--border-color);
+  
+  --font-serif: var(--font-cormorant), serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-poppins), sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-cormorant), serif;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Floating background blobs animations */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  animation: float 25s infinite alternate ease-in-out;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  100% {
+    transform: translate(80px, 50px) scale(1.2) rotate(180deg);
+  }
+}
+
+/* Premium Glass Card Style */
+.premium-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+.premium-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(197, 168, 128, 0.08);
+}
